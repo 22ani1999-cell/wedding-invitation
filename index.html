@@ -1,239 +1,301 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hy">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-<title>Wedding Invitation</title>
- 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
- 
+
+<title>Անի & Արտյոմ — Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
- 
+
 body{
 margin:0;
-font-family:Poppins;
-background:#fffaf6;
-color:#333;
+font-family:'Cormorant Garamond', serif;
+background:linear-gradient(#faf7f2,#efe7d8);
+color:#3c4a36;
 text-align:center;
+overflow-x:hidden;
 }
- 
-h1,h2{
-font-family:'Playfair Display';
-}
- 
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:url("https://images.unsplash.com/photo-1519741497674-611481863552") center/cover;
-color:white;
-}
- 
-.hero h1{
-font-size:60px;
+
+/* titles */
+
+h1{
+font-family:'Great Vibes', cursive;
+font-size:64px;
 margin:0;
 }
- 
-.date{
-font-size:22px;
-margin-top:10px;
+
+/* header */
+
+header{
+background:rgba(111,127,92,0.9);
+color:white;
+padding:100px 20px;
 }
- 
-.section{
-padding:60px 20px;
-max-width:800px;
-margin:auto;
+
+/* cards */
+
+section{
+padding:70px 20px;
 }
- 
+
 .card{
 background:white;
-padding:25px;
-margin:20px 0;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+max-width:650px;
+margin:35px auto;
+padding:40px;
+border-radius:18px;
+box-shadow:0 10px 40px rgba(0,0,0,0.1);
 }
- 
-.time{
-font-size:22px;
-font-weight:bold;
+
+.card h2{
+margin-top:0;
 }
- 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:10px;
+
+/* countdown */
+
+.date{
+font-size:30px;
+margin-top:10px;
 }
- 
-.gallery img{
-width:100%;
-border-radius:10px;
-}
- 
-input,select{
-width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
-}
- 
-button{
-background:#c89f6d;
-color:white;
-border:none;
-padding:12px 25px;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
-}
- 
+
 .countdown{
-font-size:24px;
+font-size:26px;
 margin-top:15px;
 }
- 
-.mapbtn{
-display:inline-block;
-margin-top:10px;
-background:#333;
-color:white;
-padding:8px 15px;
-border-radius:6px;
-text-decoration:none;
+
+/* floating icons */
+
+.decor{
+position:fixed;
+font-size:28px;
+opacity:0.7;
+animation:float 6s infinite ease-in-out;
 }
- 
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+100%{transform:translateY(0)}
+}
+
+.ring1{top:15%;left:10%;}
+.ring2{top:75%;left:85%;animation-delay:2s;}
+.champ1{top:60%;left:15%;animation-delay:1s;}
+.champ2{top:25%;left:80%;animation-delay:3s;}
+
+/* falling petals */
+
+.petal{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
+
+/* gallery */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
+}
+
+.gallery img{
+width:100%;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* buttons */
+
+.button{
+display:inline-block;
+margin-top:15px;
+padding:12px 22px;
+background:#6f7f5c;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
+
+/* RSVP form */
+
+input,textarea{
+width:90%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+font-family:inherit;
+}
+
+button{
+padding:12px 25px;
+border:none;
+background:#6f7f5c;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+footer{
+background:#6f7f5c;
+color:white;
+padding:25px;
+margin-top:40px;
+}
+
 </style>
- 
 </head>
- 
+
 <body>
- 
-<audio autoplay loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8a4e2f8a2.mp3" type="audio/mpeg">
-</audio>
- 
-<section class="hero">
- 
-<h1>Hovhannes & Ani</h1>
-<div class="date">15 December 2026</div>
- 
+
+<!-- floating decorations -->
+<div class="decor ring1">💍</div>
+<div class="decor ring2">💍</div>
+<div class="decor champ1">🥂</div>
+<div class="decor champ2">🥂</div>
+
+<header>
+
+<h1>Անի Ներսեսյան</h1>
+<h2>&</h2>
+<h1>Արտյոմ Սիմոնյան</h1>
+
+<p>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին</p>
+
+<div class="date">27 Հունիս 2026</div>
 <div class="countdown" id="countdown"></div>
- 
-</section>
- 
- 
-<section class="section">
- 
-<h2>Our Love Story</h2>
- 
-<p>
-We found love, friendship and happiness together.  
-Now we invite you to celebrate the beginning of our family.
-</p>
- 
-</section>
- 
- 
-<section class="section">
- 
-<h2>Wedding Schedule</h2>
- 
+
+</header>
+
+<section>
+
 <div class="card">
- 
-<div class="time">14:00</div>
- 
-<p>Church Ceremony</p>
- 
-<p>Saint Hripsime Church</p>
- 
-<a class="mapbtn" href="https://maps.google.com" target="_blank">Open Map</a>
- 
+<h2>Պսակադրություն</h2>
+<p>Սուրբ Հռիփսիմե եկեղեցի</p>
+<p>Էջմիածին</p>
+
+<a class="button" target="_blank"
+href="https://maps.google.com/?q=Hripsime+Church+Echmiadzin">
+Բացել քարտեզում
+</a>
+
 </div>
- 
- 
+
 <div class="card">
- 
-<div class="time">17:00</div>
- 
-<p>Wedding Reception</p>
- 
-<p>Lianna Garden Hall</p>
- 
-<a class="mapbtn" href="https://maps.google.com" target="_blank">Open Map</a>
- 
+<h2>Հարսանյաց Խնջույք</h2>
+<p>Mkrtchyans Hall</p>
 </div>
- 
+
 </section>
- 
- 
-<section class="section">
- 
-<h2>Photo Gallery</h2>
- 
+
+<section>
+
+<h2>Մեր հիշողությունները</h2>
+
 <div class="gallery">
- 
-<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
-<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
-<img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb">
-<img src="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611">
- 
+
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+<img src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57">
+<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
+<img src="https://images.unsplash.com/photo-1505238680356-667803448bb6">
+
 </div>
- 
+
 </section>
- 
- 
-<section class="section">
- 
-<h2>RSVP</h2>
- 
+
+<section>
+
 <div class="card">
- 
-<input type="text" placeholder="Full Name">
- 
-<select>
- 
-<option>I will attend</option>
- 
-<option>Sorry I can't attend</option>
- 
-</select>
- 
-<input type="number" placeholder="Guests">
- 
-<button>Send</button>
- 
+
+<h2>RSVP</h2>
+
+<p>Խնդրում ենք հաստատել Ձեր ներկայությունը</p>
+
+<form>
+
+<input placeholder="Ձեր անունը">
+
+<input placeholder="Քանի հոգով եք գալու">
+
+<textarea placeholder="Հաղորդագրություն"></textarea>
+
+<br>
+
+<button>Ուղարկել</button>
+
+</form>
+
 </div>
- 
+
 </section>
- 
- 
+
+<footer>
+<p>Սպասում ենք Ձեզ մեր կյանքի ամենաերջանիկ օրը միասին նշելու համար 🤍</p>
+</footer>
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1d19e64f0f.mp3">
+</audio>
+
 <script>
- 
-const weddingDate = new Date("Dec 15, 2026 14:00:00").getTime();
- 
-const timer = setInterval(function(){
- 
-const now = new Date().getTime();
- 
-const distance = weddingDate - now;
- 
-const days = Math.floor(distance/(1000*60*60*24));
- 
-const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
- 
-const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
- 
-const seconds = Math.floor((distance%(1000*60))/1000);
- 
+
+/* countdown */
+
+var weddingDate = new Date("June 27, 2026 15:00:00").getTime();
+
+setInterval(function(){
+
+var now = new Date().getTime();
+var distance = weddingDate - now;
+
+var days = Math.floor(distance / (1000*60*60*24));
+var hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+var minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+var seconds = Math.floor((distance % (1000*60))/1000);
+
 document.getElementById("countdown").innerHTML =
-days+"d "+hours+"h "+minutes+"m "+seconds+"s";
- 
+days+" օր "+hours+" ժամ "+minutes+" րոպե "+seconds+" վայրկյան";
+
 },1000);
- 
+
+
+/* falling petals */
+
+function createPetal(){
+
+var petal = document.createElement("div");
+petal.classList.add("petal");
+petal.innerHTML="🌸";
+
+petal.style.left=Math.random()*100+"vw";
+petal.style.animationDuration=(Math.random()*5+5)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},10000);
+
+}
+
+setInterval(createPetal,500);
+
 </script>
- 
+
 </body>
 </html>
+```
