@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Անի & Արտյոմ — Wedding</title>
+<style>
+body{margin:0;font-family:Georgia, serif;background:#f4efe6;color:#3c4a36;text-align:center;}
+header{background:#6f7f5c;color:white;padding:90px 20px;}
+header h1{font-size:50px;margin:0;}
+header p{font-size:20px;margin-top:10px;}
+section{padding:60px 20px;}
+.date{font-size:32px;font-weight:bold;margin-top:10px;}
+.countdown{font-size:28px;margin-top:20px;}
+.card{background:#ebe6d8;max-width:600px;margin:30px auto;padding:30px;border-radius:12px;}
+.card h2{margin-top:0;}
+footer{background:#6f7f5c;color:white;padding:25px;margin-top:40px;}
+</style>
+</head>
+<body>
+<header>
+<h1>Անի Ներսեսյան</h1>
+<h2>&</h2>
+<h1>Արտյոմ Սիմոնյան</h1>
+<p>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին</p>
+<div class="date">27 Հունիս 2026</div>
+<div class="countdown" id="countdown"></div>
+</header>
+<section>
+<div class="card">
+<h2>Պսակադրություն</h2>
+<p>Սուրբ Հռիփսիմե եկեղեցի</p>
+<p>Էջմիածին</p>
+</div>
+<div class="card">
+<h2>Հարսանյաց Խնջույք</h2>
+<p>Mkrtchyans Hall</p>
+</div>
+</section>
+<footer>
+<p>Սպասում ենք Ձեզ մեր կյանքի ամենաերջանիկ օրը միասին նշելու համար 🤍</p>
+</footer>
+<script>
+var weddingDate = new Date("June 27, 2026 15:00:00").getTime();
+var x = setInterval(function(){
+var now = new Date().getTime();
+var distance = weddingDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+document.getElementById("countdown").innerHTML = days + " օր " + hours + " ժամ " + minutes + " րոպե " + seconds + " վայրկյան";
+if(distance < 0){
+clearInterval(x);
+document.getElementById("countdown").innerHTML = "Մեծ օրը եկավ!";
+}
+},1000);
+</script>
+</body>
+</html>
