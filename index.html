@@ -1,298 +1,235 @@
 ```html
 <!DOCTYPE html>
 <html lang="hy">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Արտյոմ և Անի — Wedding</title>
+<title>Wedding Invitation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Boheme+Floral:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
+/* BOHEME FLORAL FONT */
+
+@font-face {
+font-family: "BohemeFloral";
+src: url("fonts/BohemeFloral.woff") format("woff");
+}
+
+/* PAGE */
+
 body{
 margin:0;
-font-family:'boheme floral', serif;
-background:linear-gradient(#faf7f2,#efe7d8);
-color:#3c4a36;
-text-align:center;
-overflow-x:hidden;
+background:#f6f5f1;
+font-family:'Playfair Display', serif;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+padding:40px;
 }
 
-/* titles */
-
-h1{
-font-family:'Great Vibes', cursive;
-font-size:64px;
-margin:0;
-}
-
-/* header */
-
-header{
-background:rgba(111,127,92,0.9);
-color:white;
-padding:100px 20px;
-}
-
-/* cards */
-
-section{
-padding:70px 20px;
-}
+/* INVITATION CARD */
 
 .card{
+
+width:650px;
+max-width:95%;
+
 background:white;
-max-width:650px;
-margin:35px auto;
-padding:40px;
-border-radius:18px;
-box-shadow:0 10px 40px rgba(0,0,0,0.1);
+
+position:relative;
+
+padding:120px 80px;
+
+box-shadow:0 25px 60px rgba(0,0,0,0.15);
+
+text-align:center;
+
+overflow:hidden;
+
 }
 
-.card h2{
-margin-top:0;
+/* FLORAL DECORATIONS */
+
+.flower-top{
+
+position:absolute;
+top:0;
+left:0;
+width:100%;
+opacity:.9;
+pointer-events:none;
+
 }
 
-/* countdown */
+.flower-bottom{
+
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+transform:rotate(180deg);
+opacity:.9;
+pointer-events:none;
+
+}
+
+/* NAMES */
+
+.names{
+
+font-family:"BohemeFloral", serif;
+font-size:72px;
+color:#4b564a;
+
+margin-bottom:10px;
+
+}
+
+/* TEXT */
+
+.invite-text{
+
+font-size:20px;
+letter-spacing:1px;
+margin:20px 0;
+color:#444;
+
+}
+
+/* DATE */
 
 .date{
-font-size:30px;
+
+font-size:26px;
 margin-top:10px;
+color:#6c755f;
+
 }
+
+/* LOCATION */
+
+.location{
+
+margin-top:30px;
+font-size:18px;
+line-height:1.6;
+
+}
+
+/* DIVIDER */
+
+.divider{
+
+width:70px;
+height:2px;
+
+background:#a8ad8d;
+
+margin:30px auto;
+
+}
+
+/* COUNTDOWN */
 
 .countdown{
-font-size:26px;
-margin-top:15px;
-}
 
-/* floating icons */
-
-.decor{
-position:fixed;
-font-size:28px;
-opacity:0.7;
-animation:float 6s infinite ease-in-out;
-}
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-20px)}
-100%{transform:translateY(0)}
-}
-
-.ring1{top:15%;left:10%;}
-.ring2{top:75%;left:85%;animation-delay:2s;}
-.champ1{top:60%;left:15%;animation-delay:1s;}
-.champ2{top:25%;left:80%;animation-delay:3s;}
-
-/* falling petals */
-
-.petal{
-position:fixed;
-top:-10px;
+margin-top:30px;
 font-size:20px;
-animation:fall linear infinite;
+color:#555;
+
 }
 
-@keyframes fall{
-to{
-transform:translateY(110vh);
-}
-}
+/* MOBILE */
 
-/* gallery */
+@media(max-width:600px){
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:900px;
-margin:auto;
+.card{
+padding:80px 30px;
 }
 
-.gallery img{
-width:100%;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.15);
+.names{
+font-size:48px;
 }
 
-/* buttons */
-
-.button{
-display:inline-block;
-margin-top:15px;
-padding:12px 22px;
-background:#6f7f5c;
-color:white;
-text-decoration:none;
-border-radius:8px;
-}
-
-/* RSVP form */
-
-input,textarea{
-width:90%;
-padding:12px;
-margin:10px 0;
-border-radius:8px;
-border:1px solid #ccc;
-font-family:inherit;
-}
-
-button{
-padding:12px 25px;
-border:none;
-background:#6f7f5c;
-color:white;
-border-radius:8px;
-cursor:pointer;
-}
-
-footer{
-background:#6f7f5c;
-color:white;
-padding:25px;
-margin-top:40px;
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- floating decorations -->
-<div class="decor ring1">💍</div>
-<div class="decor ring2">💍</div>
-<div class="decor champ1">🥂</div>
-<div class="decor champ2">🥂</div>
+<div class="card">
 
-<header>
+<img class="flower-top"
+src="https://i.imgur.com/7bIYqYF.png">
 
-<h1>Անի Ներսեսյան</h1>
-<h2>&</h2>
-<h1>Արտյոմ Սիմոնյան</h1>
+<img class="flower-bottom"
+src="https://i.imgur.com/7bIYqYF.png">
 
-<p>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին</p>
 
-<div class="date">27 Հունիս 2026</div>
+<div class="names">
+Անի & Արտյոմ
+</div>
+
+<div class="invite-text">
+Սիրով հրավիրում ենք Ձեզ մեր կյանքի ամենաերջանիկ օրը
+</div>
+
+<div class="date">
+27 Հունիս 2026
+</div>
+
+<div class="divider"></div>
+
+<div class="location">
+
+Պսակադրություն<br>
+Սուրբ Հռիփսիմե եկեղեցի — Էջմիածին
+
+<br><br>
+
+Հարսանյաց Խնջույք<br>
+Mkrtchyans Hall
+
+</div>
+
 <div class="countdown" id="countdown"></div>
 
-</header>
-
-<section>
-
-<div class="card">
-<h2>Պսակադրություն</h2>
-<p>Սուրբ Հռիփսիմե եկեղեցի</p>
-<p>Էջմիածին</p>
-
-<a class="button" target="_blank"
-href="https://maps.google.com/?q=Hripsime+Church+Echmiadzin">
-Բացել քարտեզում
-</a>
-
 </div>
 
-<div class="card">
-<h2>Հարսանյաց Խնջույք</h2>
-<p>Mkrtchyans Hall</p>
-</div>
-
-</section>
-
-<section>
-
-<h2>Մեր հիշողությունները</h2>
-
-<div class="gallery">
-
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-<img src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57">
-<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
-<img src="https://images.unsplash.com/photo-1505238680356-667803448bb6">
-
-</div>
-
-</section>
-
-<section>
-
-<div class="card">
-
-<h2>RSVP</h2>
-
-<p>Խնդրում ենք հաստատել Ձեր ներկայությունը</p>
-
-<form>
-
-<input placeholder="Ձեր անունը">
-
-<input placeholder="Քանի հոգով եք գալու">
-
-<textarea placeholder="Հաղորդագրություն"></textarea>
-
-<br>
-
-<button>Ուղարկել</button>
-
-</form>
-
-</div>
-
-</section>
-
-<footer>
-<p>Սպասում ենք Ձեզ մեր կյանքի ամենաերջանիկ օրը միասին նշելու համար 🤍</p>
-</footer>
-
-<audio autoplay loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1d19e64f0f.mp3">
-</audio>
 
 <script>
 
-/* countdown */
+/* COUNTDOWN TIMER */
 
 var weddingDate = new Date("June 27, 2026 15:00:00").getTime();
 
 setInterval(function(){
 
 var now = new Date().getTime();
+
 var distance = weddingDate - now;
 
 var days = Math.floor(distance / (1000*60*60*24));
+
 var hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+
 var minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+
 var seconds = Math.floor((distance % (1000*60))/1000);
 
 document.getElementById("countdown").innerHTML =
 days+" օր "+hours+" ժամ "+minutes+" րոպե "+seconds+" վայրկյան";
 
 },1000);
-
-
-/* falling petals */
-
-function createPetal(){
-
-var petal = document.createElement("div");
-petal.classList.add("petal");
-petal.innerHTML="🌸";
-
-petal.style.left=Math.random()*100+"vw";
-petal.style.animationDuration=(Math.random()*5+5)+"s";
-
-document.body.appendChild(petal);
-
-setTimeout(()=>{
-petal.remove();
-},10000);
-
-}
-
-setInterval(createPetal,500);
 
 </script>
 
