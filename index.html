@@ -1,238 +1,150 @@
-```html
 <!DOCTYPE html>
 <html lang="hy">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Wedding Invitation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* BOHEME FLORAL FONT */
-
-@font-face {
-font-family: "BohemeFloral";
-src: url("fonts/BohemeFloral.woff") format("woff");
-}
-
-/* PAGE */
-
 body{
 margin:0;
-background:#f6f5f1;
-font-family:'Playfair Display', serif;
-display:flex;
-align-items:center;
-justify-content:center;
-min-height:100vh;
-padding:40px;
-}
-
-/* INVITATION CARD */
-
-.card{
-
-width:650px;
-max-width:95%;
-
-background:white;
-
-position:relative;
-
-padding:120px 80px;
-
-box-shadow:0 25px 60px rgba(0,0,0,0.15);
-
+font-family:'Playfair Display',serif;
+background:#faf7f4;
+color:#333;
 text-align:center;
-
-overflow:hidden;
-
 }
 
-/* FLORAL DECORATIONS */
-
-.flower-top{
-
-position:absolute;
-top:0;
-left:0;
-width:100%;
-opacity:.9;
-pointer-events:none;
-
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),
+url("https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070");
+background-size:cover;
+background-position:center;
+color:white;
 }
 
-.flower-bottom{
-
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-transform:rotate(180deg);
-opacity:.9;
-pointer-events:none;
-
+.hero h1{
+font-family:'Great Vibes',cursive;
+font-size:70px;
+margin:0;
 }
 
-/* NAMES */
-
-.names{
-
-font-family:"BohemeFloral", serif;
-font-size:72px;
-color:#4b564a;
-
-margin-bottom:10px;
-
+.hero p{
+font-size:22px;
+letter-spacing:2px;
 }
 
-/* TEXT */
-
-.invite-text{
-
-font-size:20px;
-letter-spacing:1px;
-margin:20px 0;
-color:#444;
-
+.section{
+padding:70px 20px;
 }
 
-/* DATE */
-
-.date{
-
-font-size:26px;
-margin-top:10px;
-color:#6c755f;
-
+.section h2{
+font-size:36px;
+margin-bottom:30px;
 }
 
-/* LOCATION */
-
-.location{
-
-margin-top:30px;
-font-size:18px;
-line-height:1.6;
-
+.info-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:900px;
+margin:auto;
 }
-
-/* DIVIDER */
-
-.divider{
-
-width:70px;
-height:2px;
-
-background:#a8ad8d;
-
-margin:30px auto;
-
-}
-
-/* COUNTDOWN */
-
-.countdown{
-
-margin-top:30px;
-font-size:20px;
-color:#555;
-
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
 
 .card{
-padding:80px 30px;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card i{
+font-size:40px;
+color:#c59d5f;
+margin-bottom:15px;
+}
+
+.footer{
+padding:40px;
+font-size:18px;
+background:#f1ece7;
 }
 
 .names{
-font-size:48px;
-}
-
+font-size:50px;
+font-family:'Great Vibes',cursive;
+margin-top:10px;
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-<div class="card">
+<section class="hero">
 
-<img class="flower-top"
-src="https://i.imgur.com/7bIYqYF.png">
-
-<img class="flower-bottom"
-src="https://i.imgur.com/7bIYqYF.png">
-
+<i class="fa-solid fa-ring fa-3x"></i>
 
 <div class="names">
-Անի & Արտյոմ
+Արտյոմ Սիմոնյան <br> և <br> Անի Ներսեսյան
 </div>
 
-<div class="invite-text">
-Սիրով հրավիրում ենք Ձեզ մեր կյանքի ամենաերջանիկ օրը
+<p>27 Հունիս 2026</p>
+
+</section>
+
+<section class="section">
+
+<h2>Մեր Հարսանիքը</h2>
+
+<div class="info-grid">
+
+<div class="card">
+<i class="fa-solid fa-calendar"></i>
+<h3>Ամսաթիվ</h3>
+<p>27.06.2026</p>
 </div>
 
-<div class="date">
-27 Հունիս 2026
+<div class="card">
+<i class="fa-solid fa-church"></i>
+<h3>Պսակադրություն</h3>
+<p>Surb Hripsime Church</p>
 </div>
 
-<div class="divider"></div>
-
-<div class="location">
-
-Պսակադրություն<br>
-Սուրբ Հռիփսիմե եկեղեցի — Էջմիածին
-
-<br><br>
-
-Հարսանյաց Խնջույք<br>
-Mkrtchyans Hall
+<div class="card">
+<i class="fa-solid fa-location-dot"></i>
+<h3>Խնջույք</h3>
+<p>Mkrtchyan’s Hall</p>
+</div>
 
 </div>
 
-<div class="countdown" id="countdown"></div>
+</section>
 
+<section class="section">
+
+<h2>Սիրով հրավիրում ենք</h2>
+
+<p style="max-width:600px;margin:auto;font-size:18px;">
+Սիրով հրավիրում ենք ձեզ կիսելու մեր կյանքի ամենաերջանիկ օրը։
+Ձեր ներկայությունը մեզ համար մեծ ուրախություն կլինի։
+</p>
+
+</section>
+
+<div class="footer">
+<i class="fa-solid fa-heart"></i>
+Շնորհակալություն մեր օրը մեզ հետ կիսելու համար
 </div>
-
-
-<script>
-
-/* COUNTDOWN TIMER */
-
-var weddingDate = new Date("June 27, 2026 15:00:00").getTime();
-
-setInterval(function(){
-
-var now = new Date().getTime();
-
-var distance = weddingDate - now;
-
-var days = Math.floor(distance / (1000*60*60*24));
-
-var hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
-
-var minutes = Math.floor((distance % (1000*60*60))/(1000*60));
-
-var seconds = Math.floor((distance % (1000*60))/1000);
-
-document.getElementById("countdown").innerHTML =
-days+" օր "+hours+" ժամ "+minutes+" րոպե "+seconds+" վայրկյան";
-
-},1000);
-
-</script>
 
 </body>
 </html>
-```
