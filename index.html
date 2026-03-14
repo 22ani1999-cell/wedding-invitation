@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wedding Invitation</title>
+<title>Հարսանեկան Հրավեր</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -32,10 +32,9 @@ background-position:center;
 color:white;
 }
 
-.hero h1{
+.names{
 font-family:'Great Vibes',cursive;
-font-size:70px;
-margin:0;
+font-size:60px;
 }
 
 .hero p{
@@ -73,16 +72,25 @@ color:#c59d5f;
 margin-bottom:15px;
 }
 
+.countdown{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:30px;
+font-size:22px;
+}
+
+.time-box{
+background:white;
+padding:15px 25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
 .footer{
 padding:40px;
 font-size:18px;
 background:#f1ece7;
-}
-
-.names{
-font-size:50px;
-font-family:'Great Vibes',cursive;
-margin-top:10px;
 }
 
 </style>
@@ -99,6 +107,26 @@ margin-top:10px;
 </div>
 
 <p>27 Հունիս 2026</p>
+
+<div class="countdown">
+
+<div class="time-box">
+<span id="days"></span><br>օր
+</div>
+
+<div class="time-box">
+<span id="hours"></span><br>ժամ
+</div>
+
+<div class="time-box">
+<span id="minutes"></span><br>րոպե
+</div>
+
+<div class="time-box">
+<span id="seconds"></span><br>վայրկյան
+</div>
+
+</div>
 
 </section>
 
@@ -117,7 +145,7 @@ margin-top:10px;
 <div class="card">
 <i class="fa-solid fa-church"></i>
 <h3>Պսակադրություն</h3>
-<p>Surb Hripsime Church</p>
+<p>Սուրբ Հռիփսիմե Եկեղեցի</p>
 </div>
 
 <div class="card">
@@ -145,6 +173,33 @@ margin-top:10px;
 <i class="fa-solid fa-heart"></i>
 Շնորհակալություն մեր օրը մեզ հետ կիսելու համար
 </div>
+
+<script>
+
+const weddingDate = new Date("June 27, 2026 00:00:00").getTime();
+
+const timer = setInterval(function(){
+
+const now = new Date().getTime();
+const distance = weddingDate - now;
+
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("days").innerHTML = days;
+document.getElementById("hours").innerHTML = hours;
+document.getElementById("minutes").innerHTML = minutes;
+document.getElementById("seconds").innerHTML = seconds;
+
+if(distance < 0){
+clearInterval(timer);
+}
+
+},1000);
+
+</script>
 
 </body>
 </html>
