@@ -1,156 +1,143 @@
-```html
 <!DOCTYPE html>
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-
+ 
+<title>Wedding Invitation</title>
+ 
 <style>
-
+ 
 body{
-margin:0;
-font-family:'Cormorant Garamond',serif;
-color:white;
-text-align:center;
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#8fa377;
+    font-family: "Times New Roman", serif;
 }
-
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
-url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070");
-background-size:cover;
-background-position:center;
-padding:20px;
+ 
+/* envelope */
+ 
+.envelope{
+    position:relative;
+    width:320px;
+    height:420px;
+    background:#a5b78c;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    overflow:hidden;
 }
-
-/* small top text */
-
-.invite-text{
-font-family:'Cinzel',serif;
-letter-spacing:4px;
-font-size:16px;
-margin-bottom:20px;
-opacity:0.9;
+ 
+/* envelope top */
+ 
+.flap{
+    position:absolute;
+    width:100%;
+    height:200px;
+    background:#9eb182;
+    clip-path: polygon(0 0,100% 0,50% 100%);
+    transform-origin:top;
+    transition:1s;
+    z-index:3;
 }
-
-/* names */
-
-.names{
-font-family:'Great Vibes',cursive;
-font-size:85px;
-line-height:1.2;
-margin:20px 0;
+ 
+/* wax seal */
+ 
+.seal{
+    position:absolute;
+    width:80px;
+    height:80px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    font-weight:bold;
+    color:#777;
+    top:160px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:4;
+    cursor:pointer;
 }
-
-/* date */
-
-.date{
-font-family:'Cinzel',serif;
-font-size:20px;
-letter-spacing:5px;
-margin-bottom:40px;
+ 
+/* letter */
+ 
+.letter{
+    position:absolute;
+    width:90%;
+    height:90%;
+    background:white;
+    left:5%;
+    top:5%;
+    border-radius:10px;
+    padding:25px;
+    text-align:center;
+    transform:translateY(100%);
+    transition:1s;
 }
-
-/* countdown */
-
-.countdown{
-display:flex;
-gap:25px;
+ 
+.open .flap{
+    transform:rotateX(180deg);
 }
-
-.time-box{
-background:rgba(255,255,255,0.2);
-backdrop-filter:blur(10px);
-padding:18px 26px;
-border-radius:10px;
+ 
+.open .letter{
+    transform:translateY(0);
 }
-
-.time-box span{
-display:block;
-font-size:34px;
-font-weight:600;
+ 
+h1{
+    font-size:26px;
 }
-
+ 
+p{
+    font-size:18px;
+    line-height:1.6;
+}
+ 
 </style>
 </head>
-
+ 
 <body>
-
-<section class="hero">
-
-<div class="invite-text">
-SAVE THE DATE
+ 
+<div class="envelope" id="envelope">
+ 
+<div class="flap"></div>
+ 
+<div class="seal" onclick="openInvite()">
+AA
 </div>
-
-<div class="names">
-Արտյոմ Սիմոնյան <br> & <br> Անի Ներսեսյան
+ 
+<div class="letter">
+ 
+<h1>Հարսանեկան հրավեր</h1>
+ 
+<p>
+Սիրով հրավիրում ենք Ձեզ  
+մասնակցելու մեր հարսանեկան արարողությանը
+</p>
+ 
+<p>
+Արտյոմ և Անի
+</p>
+ 
+<p>
+20 Հունիս 2026
+</p>
+ 
 </div>
-
-<div class="date">
-27 ՀՈՒՆԻՍ 2026
+ 
 </div>
-
-<div class="countdown">
-
-<div class="time-box">
-<span id="days"></span>
-օր
-</div>
-
-<div class="time-box">
-<span id="hours"></span>
-ժամ
-</div>
-
-<div class="time-box">
-<span id="minutes"></span>
-րոպե
-</div>
-
-<div class="time-box">
-<span id="seconds"></span>
-վայրկյան
-</div>
-
-</div>
-
-</section>
-
+ 
 <script>
-
-const weddingDate = new Date("2026-06-27T00:00:00").getTime();
-
-function updateCountdown(){
-
-const now = new Date().getTime();
-const distance = weddingDate - now;
-
-document.getElementById("days").innerHTML =
-Math.floor(distance/(1000*60*60*24));
-
-document.getElementById("hours").innerHTML =
-Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-document.getElementById("minutes").innerHTML =
-Math.floor((distance%(1000*60*60))/(1000*60));
-
-document.getElementById("seconds").innerHTML =
-Math.floor((distance%(1000*60))/1000);
-
+ 
+function openInvite(){
+document.getElementById("envelope").classList.add("open");
 }
-
-updateCountdown();
-setInterval(updateCountdown,1000);
-
+ 
 </script>
-
+ 
 </body>
 </html>
-```
