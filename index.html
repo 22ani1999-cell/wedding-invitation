@@ -1,131 +1,263 @@
 <!DOCTYPE html>
-<html lang="hy">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
 <title>Wedding Invitation</title>
  
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+ 
 <style>
  
 body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#8fa377;
-    font-family: "Times New Roman", serif;
+margin:0;
+font-family:'Playfair Display',serif;
+background:#f4f4f4;
+text-align:center;
+color:#333;
 }
  
-/* envelope */
+/* envelope screen */
+ 
+#intro{
+position:fixed;
+width:100%;
+height:100%;
+background:#7f9166;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:100;
+}
  
 .envelope{
-    position:relative;
-    width:320px;
-    height:420px;
-    background:#a5b78c;
-    border-radius:10px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
-    overflow:hidden;
+width:330px;
+height:220px;
+background:#a5b78c;
+position:relative;
+border-radius:6px;
+box-shadow:0 20px 40px rgba(0,0,0,0.3);
+cursor:pointer;
 }
- 
-/* envelope top */
  
 .flap{
-    position:absolute;
-    width:100%;
-    height:200px;
-    background:#9eb182;
-    clip-path: polygon(0 0,100% 0,50% 100%);
-    transform-origin:top;
-    transition:1s;
-    z-index:3;
+position:absolute;
+width:100%;
+height:100%;
+background:#97aa7c;
+clip-path: polygon(0 0,100% 0,50% 60%);
+transition:1s;
+transform-origin:top;
 }
- 
-/* wax seal */
  
 .seal{
-    position:absolute;
-    width:80px;
-    height:80px;
-    background:white;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-    font-weight:bold;
-    color:#777;
-    top:160px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:4;
-    cursor:pointer;
-}
- 
-/* letter */
- 
-.letter{
-    position:absolute;
-    width:90%;
-    height:90%;
-    background:white;
-    left:5%;
-    top:5%;
-    border-radius:10px;
-    padding:25px;
-    text-align:center;
-    transform:translateY(100%);
-    transition:1s;
+position:absolute;
+width:70px;
+height:70px;
+border-radius:50%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:'Great Vibes';
+font-size:32px;
+top:60px;
+left:50%;
+transform:translateX(-50%);
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
  
 .open .flap{
-    transform:rotateX(180deg);
+transform:rotateX(180deg);
 }
  
-.open .letter{
-    transform:translateY(0);
+/* main website */
+ 
+#site{
+display:none;
+background:white;
 }
  
-h1{
-    font-size:26px;
+.hero{
+padding:80px 20px;
+background:#f6f6f6;
 }
  
-p{
-    font-size:18px;
-    line-height:1.6;
+.names{
+font-family:'Great Vibes';
+font-size:56px;
+color:#6b7f52;
+}
+ 
+.date{
+font-size:22px;
+margin-top:10px;
+}
+ 
+/* countdown */
+ 
+#countdown{
+margin-top:25px;
+font-size:22px;
+}
+ 
+/* section */
+ 
+.section{
+padding:60px 20px;
+max-width:800px;
+margin:auto;
+}
+ 
+.section h2{
+font-family:'Great Vibes';
+font-size:36px;
+color:#6b7f52;
+}
+ 
+/* gallery */
+ 
+.gallery{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-top:20px;
+}
+ 
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+ 
+/* RSVP */
+ 
+form{
+display:flex;
+flex-direction:column;
+gap:10px;
+max-width:320px;
+margin:auto;
+margin-top:20px;
+}
+ 
+input,button{
+padding:12px;
+font-size:16px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+ 
+button{
+background:#6b7f52;
+color:white;
+border:none;
+cursor:pointer;
+}
+ 
+button:hover{
+background:#55653f;
+}
+ 
+/* map */
+ 
+iframe{
+width:100%;
+height:300px;
+border:none;
+border-radius:10px;
+margin-top:20px;
 }
  
 </style>
+ 
 </head>
  
 <body>
  
-<div class="envelope" id="envelope">
+<!-- Envelope Intro -->
+ 
+<div id="intro">
+ 
+<div class="envelope" onclick="openInvite()">
  
 <div class="flap"></div>
  
-<div class="seal" onclick="openInvite()">
-AA
+<div class="seal">A&A</div>
+ 
 </div>
  
-<div class="letter">
+</div>
  
-<h1>Հարսանեկան հրավեր</h1>
+<!-- Music -->
+ 
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+ 
+<!-- Website -->
+ 
+<div id="site">
+ 
+<div class="hero">
+ 
+<div class="names">Arman & Ani</div>
+ 
+<div class="date">June 20 • 2026</div>
+ 
+<div id="countdown"></div>
+ 
+</div>
+ 
+<div class="section">
+ 
+<h2>Our Wedding</h2>
  
 <p>
-Սիրով հրավիրում ենք Ձեզ  
-մասնակցելու մեր հարսանեկան արարողությանը
+We joyfully invite you to celebrate our wedding day  
+and share this special moment with us.
 </p>
  
-<p>
-Արտյոմ և Անի
-</p>
+</div>
  
-<p>
-20 Հունիս 2026
-</p>
+<div class="section">
+ 
+<h2>Location</h2>
+ 
+<iframe
+src="https://maps.google.com/maps?q=yerevan&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+ 
+</div>
+ 
+<div class="section">
+ 
+<h2>Gallery</h2>
+ 
+<div class="gallery">
+ 
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+ 
+</div>
+ 
+</div>
+ 
+<div class="section">
+ 
+<h2>RSVP</h2>
+ 
+<form>
+ 
+<input type="text" placeholder="Your Name" required>
+ 
+<input type="email" placeholder="Email">
+ 
+<button type="submit">Confirm Attendance</button>
+ 
+</form>
  
 </div>
  
@@ -133,9 +265,40 @@ AA
  
 <script>
  
+/* open invitation */
+ 
 function openInvite(){
-document.getElementById("envelope").classList.add("open");
+ 
+document.querySelector(".envelope").classList.add("open")
+ 
+setTimeout(()=>{
+ 
+document.getElementById("intro").style.display="none"
+document.getElementById("site").style.display="block"
+document.getElementById("music").play()
+ 
+},1000)
+ 
 }
+ 
+/* countdown */
+ 
+const wedding = new Date("June 20, 2026 17:00:00").getTime()
+ 
+setInterval(()=>{
+ 
+const now = new Date().getTime()
+ 
+const diff = wedding - now
+ 
+const days = Math.floor(diff/(1000*60*60*24))
+const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60))
+const minutes = Math.floor((diff%(1000*60*60))/(1000*60))
+ 
+document.getElementById("countdown").innerHTML =
+days+" days "+hours+" hours "+minutes+" minutes"
+ 
+},1000)
  
 </script>
  
