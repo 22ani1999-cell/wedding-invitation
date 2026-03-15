@@ -1,23 +1,30 @@
+```html
 <!DOCTYPE html>
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Հարսանեկան Հրավեր</title>
+<title>Wedding Invitation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:'Playfair Display',serif;
-background:#faf7f4;
-color:#333;
-text-align:center;
+padding:0;
+box-sizing:border-box;
 }
+
+body{
+font-family:'Montserrat',sans-serif;
+color:white;
+overflow-x:hidden;
+}
+
+/* HERO */
 
 .hero{
 height:100vh;
@@ -25,72 +32,109 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-background:linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),
-url("https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070");
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070");
 background-size:cover;
 background-position:center;
-color:white;
+padding:20px;
+}
+
+.ring{
+font-size:40px;
+margin-bottom:20px;
 }
 
 .names{
 font-family:'Great Vibes',cursive;
-font-size:60px;
+font-size:70px;
+line-height:1.2;
+margin-bottom:20px;
 }
 
-.hero p{
-font-size:22px;
-letter-spacing:2px;
+.date{
+font-size:20px;
+letter-spacing:3px;
+margin-bottom:40px;
 }
+
+/* COUNTDOWN */
+
+.countdown{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.time-box{
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.2);
+border-radius:12px;
+padding:20px 25px;
+min-width:90px;
+}
+
+.time-box span{
+display:block;
+font-size:32px;
+font-weight:600;
+}
+
+/* SECTION */
 
 .section{
-padding:70px 20px;
+padding:80px 20px;
+background:#faf7f4;
+color:#333;
+text-align:center;
 }
 
 .section h2{
 font-size:36px;
-margin-bottom:30px;
+margin-bottom:40px;
 }
 
-.info-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+/* CARDS */
+
+.grid{
 max-width:900px;
 margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
 }
 
 .card{
 background:white;
 padding:30px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border-radius:14px;
+box-shadow:0 15px 30px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 .card i{
 font-size:40px;
-color:#c59d5f;
+color:#c8a96a;
 margin-bottom:15px;
 }
 
-.countdown{
-display:flex;
-justify-content:center;
-gap:25px;
-margin-top:30px;
-font-size:22px;
+.card h3{
+margin-bottom:10px;
 }
 
-.time-box{
-background:white;
-padding:15px 25px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+/* FOOTER */
 
 .footer{
 padding:40px;
-font-size:18px;
 background:#f1ece7;
+color:#333;
+font-size:18px;
 }
 
 </style>
@@ -100,30 +144,38 @@ background:#f1ece7;
 
 <section class="hero">
 
-<i class="fa-solid fa-ring fa-3x"></i>
+<div class="ring">
+<i class="fa-solid fa-ring"></i>
+</div>
 
 <div class="names">
 Արտյոմ Սիմոնյան <br> և <br> Անի Ներսեսյան
 </div>
 
-<p>27 Հունիս 2026</p>
+<div class="date">
+27 Հունիս 2026
+</div>
 
 <div class="countdown">
 
 <div class="time-box">
-<span id="days"></span><br>օր
+<span id="days">0</span>
+օր
 </div>
 
 <div class="time-box">
-<span id="hours"></span><br>ժամ
+<span id="hours">0</span>
+ժամ
 </div>
 
 <div class="time-box">
-<span id="minutes"></span><br>րոպե
+<span id="minutes">0</span>
+րոպե
 </div>
 
 <div class="time-box">
-<span id="seconds"></span><br>վայրկյան
+<span id="seconds">0</span>
+վայրկյան
 </div>
 
 </div>
@@ -134,7 +186,7 @@ background:#f1ece7;
 
 <h2>Մեր Հարսանիքը</h2>
 
-<div class="info-grid">
+<div class="grid">
 
 <div class="card">
 <i class="fa-solid fa-calendar"></i>
@@ -158,17 +210,6 @@ background:#f1ece7;
 
 </section>
 
-<section class="section">
-
-<h2>Սիրով հրավիրում ենք</h2>
-
-<p style="max-width:600px;margin:auto;font-size:18px;">
-Սիրով հրավիրում ենք ձեզ կիսելու մեր կյանքի ամենաերջանիկ օրը։
-Ձեր ներկայությունը մեզ համար մեծ ուրախություն կլինի։
-</p>
-
-</section>
-
 <div class="footer">
 <i class="fa-solid fa-heart"></i>
 Շնորհակալություն մեր օրը մեզ հետ կիսելու համար
@@ -176,30 +217,30 @@ background:#f1ece7;
 
 <script>
 
-const weddingDate = new Date("June 27, 2026 00:00:00").getTime();
+const weddingDate = new Date("2026-06-27T00:00:00").getTime();
 
-const timer = setInterval(function(){
+function updateCountdown(){
 
 const now = new Date().getTime();
 const distance = weddingDate - now;
 
-const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+const days = Math.floor(distance/(1000*60*60*24));
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+const seconds = Math.floor((distance%(1000*60))/1000);
 
 document.getElementById("days").innerHTML = days;
 document.getElementById("hours").innerHTML = hours;
 document.getElementById("minutes").innerHTML = minutes;
 document.getElementById("seconds").innerHTML = seconds;
 
-if(distance < 0){
-clearInterval(timer);
 }
 
-},1000);
+updateCountdown();
+setInterval(updateCountdown,1000);
 
 </script>
 
 </body>
 </html>
+```
